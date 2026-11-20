@@ -1,0 +1,37 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AR Operations Dashboard · 255 Networks</title><style>
+:root{color-scheme:light;--ink:#182f33;--line:#c9d6cf;--teal:#185e55}
+*{box-sizing:border-box}body{margin:0;background:#f6f6ef;color:var(--ink);font:16px/1.55 "DM Sans",system-ui,sans-serif}
+main{max-width:1020px;margin:auto;padding:36px 25px 70px}header{padding:20px 0 24px}header p{margin:6px 0;color:#455e5a}
+.eyebrow{font-weight:650;letter-spacing:.03em}h1,h2{font-family:"Instrument Serif",Georgia,serif;font-weight:normal}
+h1{font-size:clamp(40px,7vw,72px);line-height:1;margin:15px 0}h2{margin:0 0 15px;font-size:32px;line-height:1.15}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);background:#184a46;color:white;border-radius:12px;overflow:hidden}
+.metrics div{padding:20px;display:grid;border-right:1px solid #507773}.metrics strong{font-size:clamp(24px,5vw,42px);font-variant-numeric:tabular-nums}
+.metrics small{color:#cee2d8}nav{padding:22px 0;display:flex;flex-wrap:wrap;gap:8px}nav a{color:var(--teal);background:#e3eae2;border-radius:5px;padding:5px 11px}
+section{scroll-margin-top:18px;border-top:1px solid var(--line);padding:27px 0}section p,footer{color:#425a55}.formula{font-size:1.18rem}
+table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}th,td{padding:9px 12px;border-bottom:1px solid #dbe2d9;text-align:left}th{background:#eaf0e7}
+.scroll{overflow-x:auto}label{display:inline-block;margin-bottom:13px;font-weight:650}select{padding:6px;font:inherit}footer{margin-top:24px}
+@media(max-width:600px){main{padding:20px 14px}.metrics{grid-template-columns:1fr}.metrics div{padding:11px 15px;border-bottom:1px solid #507773}.metrics strong{font-size:30px}th,td{min-width:88px}}
+</style></head>
+<body><main><header><p class="eyebrow">255 Networks · Finance operations</p><h1>Receivables review</h1>
+<p>2026-04-06 09:00 to 2026-04-10 17:00 UTC · Fictional operating data</p></header><div class="metrics"><div><span>Ending backlog</span><strong>3</strong><small>open cases</small></div><div><span>Closure events</span><strong>3</strong><small>in the window</small></div><div><span>Open invoice value</span><strong>$460.00</strong><small>distinct invoices in USD</small></div></div>
+<nav aria-label="Dashboard views"><a href='#position'>Position</a><a href='#team'>Team</a><a href='#response'>Response</a><a href='#capacity'>Capacity</a><a href='#delays'>Bottlenecks</a><a href='#exposure'>Exposure</a><a href='#automation'>Automation</a></nav><section id='position'><h2>Weekly position</h2><p class='formula'>1 opening + 4 new + 1 reopened − 3 closed = <b>3 ending</b></p></section><section id='team'><h2>Team workload</h2><div class='scroll'><table><thead><tr><th scope='col'>Queue</th><th scope='col'>Closures at time of close</th><th scope='col'>Open at week end</th></tr></thead><tbody><tr><td>East</td><td>2</td><td>1</td></tr><tr><td>West</td><td>1</td><td>2</td></tr></tbody></table></div></section><section id='response'><h2>Response and aging</h2><div class='scroll'><table><thead><tr><th scope='col'>First response outcome</th><th scope='col'>New tickets</th></tr></thead><tbody><tr><td>Met</td><td>2</td></tr><tr><td>Missed</td><td>1</td></tr><tr><td>Pending</td><td>1</td></tr></tbody></table></div><p>First response target: four business hours. Open case ages appear in the exposure view.</p></section><section id='capacity'><h2>Staffed capacity</h2><div class='scroll'><table><thead><tr><th scope='col'>Queue</th><th scope='col'>Available hours</th><th scope='col'>Closures per staffed hour</th></tr></thead><tbody><tr><td>East</td><td>24</td><td>0.08</td></tr><tr><td>West</td><td>30</td><td>0.03</td></tr></tbody></table></div><p>Use volume and case mix alongside this rate when interpreting a small sample.</p></section><section id='delays'><h2>Process bottlenecks</h2><div class='scroll'><table><thead><tr><th scope='col'>Measure</th><th scope='col'>Observed</th></tr></thead><tbody><tr><td>Marked hold time in window</td><td>8 business hours</td></tr><tr><td>Median closed episode duration</td><td>6 business hours</td></tr></tbody></table></div><p>A ticket can have several episodes. Each reopen starts a new episode.</p></section><section id='exposure'><h2>Open financial exposure</h2><label>Queue <select id='queue'><option value=''>All queues</option><option value='West'>West</option><option value='East'>East</option></select></label><div class='scroll'><table id='cases'><thead><tr><th scope='col'>Open ticket</th><th scope='col'>Owner</th><th scope='col'>Invoice</th><th scope='col'>USD face value</th><th scope='col'>Age in business hours</th></tr></thead><tbody><tr data-owner='West' data-invoice='INV-28' data-usd='400'><td>AR-12</td><td>West</td><td>INV-28</td><td>$400.00</td><td>39</td></tr><tr data-owner='West' data-invoice='INV-28' data-usd='400'><td>AR-13</td><td>West</td><td>INV-28</td><td>$400.00</td><td>21</td></tr><tr data-owner='East' data-invoice='INV-45' data-usd='60'><td>AR-15</td><td>East</td><td>INV-45</td><td>$60.00</td><td>1</td></tr></tbody></table></div><p id='subtotal' aria-live='polite'>3 tickets · 2 distinct invoices · $460.00</p></section><section id='automation'><h2>Automation decisions</h2><div class='scroll'><table><thead><tr><th scope='col'>Recorded reviewer action</th><th scope='col'>Suggestions</th></tr></thead><tbody><tr><td>Confirmed</td><td>2</td></tr><tr><td>Overridden</td><td>1</td></tr></tbody></table></div><p>The event log records the reviewer’s response. Independent QA would be required to measure decision accuracy.</p></section><footer>Malachi Pride · See README.md for period, attribution and calculation conventions.</footer></main>
+<script>
+const queue = document.getElementById('queue');
+queue.addEventListener('change', () => {
+  const invoices = new Map();
+  let tickets = 0;
+  for (const row of document.querySelectorAll('#cases tbody tr')) {
+    row.hidden = Boolean(queue.value && queue.value !== row.dataset.owner);
+    if (!row.hidden) {
+      tickets += 1;
+      invoices.set(row.dataset.invoice, Number(row.dataset.usd));
+    }
+  }
+  const total = Array.from(invoices.values()).reduce((sum, value) => sum + value, 0);
+  const formatted = new Intl.NumberFormat('en-US', {style:'currency',currency:'USD'}).format(total);
+  const ticketLabel = tickets === 1 ? ' ticket' : ' tickets';
+  const invoiceLabel = invoices.size === 1 ? ' distinct invoice' : ' distinct invoices';
+  document.getElementById('subtotal').textContent = tickets + ticketLabel + ' · ' + invoices.size + invoiceLabel + ' · ' + formatted;
+});
+</script></body></html>
